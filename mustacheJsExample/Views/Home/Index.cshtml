@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Push the button below to get some data, populate the template, and display it on the page all using mustacheJs.</p>
+    <input type="button" class="btn btn-primary" value="Show Data" onclick="showContacts();" />
+</div>
+
+
+<br />
+<div id="container" class="text-center">
+    <div class="spinner-border  text-primary" role="status">
+
+    </div>
+</div>
+
+<script id="templateContacts" type="text/x-template">
+
+    <table class="table">
+        <thead>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone</th>
+        </thead>
+        {{#RootTag}}
+            <tr>
+                <td>{{Name}}</td>
+                <td>{{Address}}</td>
+                <td>{{PhoneNumber}}</td>
+            </tr>
+        {{/RootTag}}
+    </table>
+</script>
+
+
+
+
+<script type="text/javascript">
+    function showContacts(e) {
+        $.getJSON("Home/Contacts", function (data) {
+            var templateWithData = Mustache.to_html($("#templateContacts").html(), { RootTag: data });
+            $("#container").empty().html(templateWithData);
+        });
+    }
+</script>
