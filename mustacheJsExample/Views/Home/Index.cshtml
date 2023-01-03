@@ -22,12 +22,14 @@
         <thead>
             <th>Name</th>
             <th>Address</th>
+            <th>City St, Zip </th>
             <th>Phone</th>
         </thead>
         {{#RootTag}}
             <tr>
                 <td>{{Name}}</td>
-                <td>{{Address}}</td>
+                <td>{{Address.AddressLine1}}</td>
+                <td>{{Address.City}} {{Address.State}}, {{Address.PostalCode}}</td>
                 <td>{{PhoneNumber}}</td>
             </tr>
         {{/RootTag}}

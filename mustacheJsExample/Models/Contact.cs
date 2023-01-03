@@ -4,7 +4,7 @@
     {
         public Guid Id { get; set; }
         public String Name { get; set; }
-        public String Address { get; set; }
+        public ContactAddress Address { get; set; }
         public String PhoneNumber { get; set; }
 
     }
