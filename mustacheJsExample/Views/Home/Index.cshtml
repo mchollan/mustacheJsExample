@@ -27,7 +27,14 @@
         </thead>
         {{#RootTag}}
             <tr>
-                <td>{{Name}}</td>
+                <td>
+                    {{Name}}
+                    {{#Aliases}}
+                    <br />
+                        {{.}}
+                    {{/Aliases}}
+                </td>
+
                 <td>{{Address.AddressLine1}}</td>
                 <td>{{Address.City}} {{Address.State}}, {{Address.PostalCode}}</td>
                 <td>{{PhoneNumber}}</td>
